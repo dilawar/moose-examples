@@ -1,15 +1,15 @@
-if [ $# != 2 ]; then
-	echo "Usage:"
-	echo "sh check_script.py <GPU_BUILD_DIR> <CPU_BUILD_DIR>"
-	exit
-fi
+echo "Usage:"
+echo "Manually set variables GPU_BUILD_DIR and CPU_BUILD_DIR in the script"
+echo "sh check_script.sh <PATH TO MOOSE-SCRIPT>"
+echo "Note: MOOSE-SCRIPT should take atleast one argument"
+echo "First argumnet is the folder path to dump files"
 
-GPU_BUILD_DIR=$1
-CPU_BUILD_DIR=$2
-#GPU_BUILD_DIR="/home/teja/Work/ncbs/moose-core/build"
-#CPU_BUILD_DIR="/home/teja/Work/ncbs/moose-core-static/build"
 
-SCRIPT_PATH="testScript.py"
+GPU_BUILD_DIR="/home/teja/Work/ncbs/moose-core/build"
+CPU_BUILD_DIR="/home/teja/Work/ncbs/moose-core/cpu_build"
+
+SCRIPT_PATH=$1
+
 CPU_DUMP="./cpu/"
 GPU_DUMP="./gpu/"
 
