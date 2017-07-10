@@ -4,8 +4,19 @@ import rdesigneur as rd
 import sys
 import time
 
+import numpy as np
+import sys
+import os
+
+# Dumping plots to files
+def dump_data(dump_dir):
+    for x in moose.wildcardFind( '/model/graphs/#' ):
+        # Create file name
+        name = os.path.join(dump_dir,x.name)
+        np.savetxt(name, x.vector)
+
 path = './cells/R155T1.CNG.swc'
-simTime = 0.2
+simTime = 0.05
 
 DUMP_PATH = sys.argv[1]
 
@@ -36,9 +47,9 @@ rdes = rd.rdesigneur(
 	],
 	spineDistrib = [['spine', '#dend#,#apical#', '20e-6', '1e-6']],
 	stimList = [['soma', '1', '.', 'inject', '(t>0.02) * 1e-9' ]],
-	#plotList = [['soma', '1', '.', 'Vm', 'Membrane potential'],
-	#        ['soma', '1', 'Ca_conc', 'Ca', 'Ca conc (uM)']],
-	plotList = [['soma', '1', '.', 'Vm', 'Membrane potential']]
+	plotList = [['soma', '1', '.', 'Vm', 'Membrane potential'],
+	        ['soma', '1', 'Ca_conc', 'Ca', 'Ca conc (uM)']],
+	#plotList = [['soma', '1', '.', 'Vm', 'Membrane potential']]
 	#moogList = [['#', '1', 'Ca_conc', 'Ca', 'Calcium conc (uM)', 0, 120],
 	#    ['#', '1', '.', 'Vm', 'Soma potential']]
 )
@@ -52,14 +63,11 @@ end_time = time.time()
 
 print "Time taken: ", (end_time-start_time)
 
-plots = moose.wildcardFind("/model/graphs/#")
-f = open("output.txt", "w+")
+# Dumping table data to DUMP_PATH folder
+dump_data(DUMP_PATH)
 
-for plot in plots:
-	#f.write(plot.name+"\n")
-	for i in range(len(plot.vector)):
-		f.write(str(plot.vector[i])+"\n")
-
+# Visualization
+rdes.display()
 
 #plot1 = moose.element("/model/graphs/plot0")
 #plot2 = moose.element("/model/graphs/plot1")
