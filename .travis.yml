@@ -1,5 +1,10 @@
 sudo : required 
 
+# jekyll support for gh-pages.
+language: ruby
+rvm:
+    - 2.4.1
+
 notifications:
     email:
         recipients:
@@ -7,17 +12,18 @@ notifications:
             - bhalla@ncbs.res.in
             - hrani@ncbs.res.in
 
-
 install:
     - sudo ./.travis_prepare.sh
 
 script:
     - ./.travis_run.sh
 
+exclude: [vendor]
+
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN  #
+  github-token: $GHI_TOKEN  #
   keep-history: true
   on:
     branch: master

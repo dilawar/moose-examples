@@ -155,3 +155,10 @@
 ./../snippets/nsdf.py
 ./../snippets/Izhikevich_with_synapse.py
 ./../snippets/testSigNeur.py
+./../hopfield/hopfield1.py
+./../hopfield/hopfield.py
+./../snippets/nsdf.py
+./../snippets/hdfdemo.py
+./../snippets/testSigNeur.py
+./../snippets/Izhikevich_with_synapse.py
+./../neuroml/LIF/LIFxml_firing_hsolve.py
