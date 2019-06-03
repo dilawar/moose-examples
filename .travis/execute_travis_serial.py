@@ -39,8 +39,8 @@ def filter_scripts(filename):
         willNotRun_['NO_MAIN'].add(filename)
         return False
 
-    if re.search( r'import\s+PyQt(4|5)|from\s+PyQt(4|5)\s+import', txt):
-        willNotRun_['PYQT_REQUIRED'].add(filename)
+    if re.search( r'import\s+PyQt4|from\s+PyQt4\s+import', txt):
+        willNotRun_['PYQT4_REQUIRED'].add(filename)
         return False
 
     m = re.search( r'input\(\s*\)|raw_input\(\s*\)', txt)
