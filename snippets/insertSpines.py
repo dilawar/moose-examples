@@ -31,15 +31,10 @@
 # This example illustrates loading a model from an SWC file, inserting
 # spines, and viewing it.
 
-try:
-    import moogli
-except Exception as e:
-    print( "[INFO ] Failed to import moogli. Quitting..." )
-    quit()
 
 import moose
 from matplotlib import cm
-from PyQt4 import Qt, QtCore, QtGui
+from PyQt5 import QtGui, QtCore, QtWidgets
 import sys
 import os
 import rdesigneur as rd
@@ -65,7 +60,7 @@ spines, and viewing it.
     spineAngle = 0
     spineAngleDistrib = 2*PI
 
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     filename = 'barrionuevo_cell1zr.CNG.swc'
     #filename = 'h10.CNG.swc'
     moose.Neutral( '/library' )
