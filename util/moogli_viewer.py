@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 """
@@ -7,22 +6,22 @@ Moogli Visualizer.
 try:
     import moogli
 except ImportError as e:
-    print('[INFO] moogli not found' )
+    print(e)
     quit()
 
 # http://stackoverflow.com/questions/28104362/how-to-rotate-camera-in-openscenegraphwalk-through-in-model
-from PyQt4 import QtGui
-from PyQt4 import QtCore
-from PyQt4 import Qt
-from PyQt4.QtGui import QPushButton
-from PyQt4.QtGui import QWidget
-from PyQt4.QtGui import QVBoxLayout
-from PyQt4.QtGui import QGridLayout
-from PyQt4.QtGui import QDialog
-from PyQt4.QtGui import QTableWidget
-from PyQt4.QtGui import QTableWidgetItem
-from PyQt4.QtGui import QCheckBox
-from PyQt4.QtGui import QComboBox
+from PyQt5.QtWidgets import QApplication
+from PyQt5 import QtCore
+from PyQt5 import Qt
+from PyQt5.QtWidgets import QPushButton
+from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QVBoxLayout
+from PyQt5.QtWidgets import QGridLayout
+from PyQt5.QtWidgets import QDialog
+from PyQt5.QtWidgets import QTableWidget
+from PyQt5.QtWidgets import QTableWidgetItem
+from PyQt5.QtWidgets import QCheckBox
+from PyQt5.QtWidgets import QComboBox
 import time
 import moose
 from moose import neuroml
