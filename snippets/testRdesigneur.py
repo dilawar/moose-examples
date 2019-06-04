@@ -12,7 +12,7 @@ import numpy
 import matplotlib.pyplot as plt
 import moose
 import sys
-from PyQt4 import QtGui
+from PyQt5.QtWidgets import QApplication
 import rdesigneur as rd
 
 RM = 1.0
@@ -173,7 +173,7 @@ It causes 'inject' of the relevant compartment to rise.
     p3.legend()
 
     plt.show()
-    app = QtGui.QApplication(sys.argv)
+    app = QApplication(sys.argv)
     #widget = mv.MoogliViewer( '/model' )
     morphology = moogli.read_morphology_from_moose( name="", path = '/model/elec' )
     widget = moogli.MorphologyViewerWidget( morphology )

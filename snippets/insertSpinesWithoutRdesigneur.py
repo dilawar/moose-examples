@@ -37,7 +37,7 @@ except ImportError as e:
     quit()
     
 import moose
-from PyQt4 import Qt, QtCore, QtGui
+from PyQt5.QtWidgets import QApplication
 import sys
 import os
 sys.path.append( '../util' )
@@ -92,7 +92,7 @@ specification, without the rdesigneur intermediate.
 
     """
 
-    app = QtGui.QApplication(sys.argv)
+    app = QApplication(sys.argv)
     moose.Neutral( '/library' )
     makeSpineProto()
     model = moose.loadModel( filename, '/model' )

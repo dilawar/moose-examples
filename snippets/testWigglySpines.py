@@ -8,9 +8,9 @@ import matplotlib.pyplot as plt
 import moose
 import sys
 import rdesigneur as rd
+from PyQt5.QtWidgets import QApplication
 
 try:
-    from PyQt4 import QtGui
     import moogli
 except ImportError as e:
     print( "[INFO ] Could not find moogli. Quitting..." )
@@ -211,7 +211,7 @@ def main():
     pylab.legend()
     pylab.show()
 
-    app = QtGui.QApplication(sys.argv)
+    app = QApplication(sys.argv)
     #widget = mv.MoogliViewer( '/model' )
     morphology = moogli.read_morphology_from_moose( name="", path = '/model/elec' )
     widget = moogli.MorphologyViewerWidget( morphology )
