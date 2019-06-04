@@ -3,38 +3,19 @@
 #
 # Filename:  loadMorphology.py
 # Author: Upinder S. Bhalla
-# Maintainer:
-# Created: Oct  12 16:26:05 2014 (+0530)
-# Version:
-# Last-Updated: May 16 2017
-#           By: Upinder S. Bhalla
-#     Update #:
-# URL:
-# Keywords:
-# Compatibility:
-#
-#
-# Commentary:
-#
-#
-# Change log: updated with current API
-## This program is part of 'MOOSE', the
-## Messaging Object Oriented Simulation Environment.
-##           Copyright (C) 2015 Upinder S. Bhalla. and NCBS
-## It is made available under the terms of the
-## GNU Lesser General Public License version 2.1
-## See the file COPYING.LIB for the full notice.
+# Maintainer: Dilawar Singh
+# Logs:
+#   2019-06-03: Ported to PyQt5. Python3 only.
 ########################################################################
 
+import moose
 try:
     import moogli
 except Exception as e:
-    print( "[INFO ] Failed to import moogli. Quitting..." )
-    quit()
-
-import moose
+    print( 'Moogli not found.' )
+    quit(0)
 from moose import neuroml
-from PyQt4 import Qt, QtCore, QtGui
+from PyQt5 import QtCore, QtWidgets
 import sys
 import os
 
@@ -47,7 +28,7 @@ def main():
     """
     Demonstrates how one can visualise morphology of a neuron using the MOOSE.
     """
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     filename = 'barrionuevo_cell1zr.CNG.swc'
     moose.Neutral( '/library' )
     moose.Neutral( '/model' )

@@ -9,13 +9,10 @@
 ## rxdSpineSize.py: Builds a cell with spines and a propagating reaction
 ## wave. Products diffuse into the spine and cause it to get bigger.
 ##################################################################
-try:
-    from PyQt4 import QtGui
-    import moogli
-    import moogli.extensions.moose
-except ImportError as e:
-    print( "[INFO ] moogli is not found. Quitting..." )
-    quit()
+
+from PyQt5.QtWidgets import QApplication
+import moogli
+import moogli.extensions.moose
     
 import math
 import pylab
@@ -23,7 +20,6 @@ import numpy
 import matplotlib.pyplot as plt
 import moose
 import sys
-sys.path.append( '../util' )
 import rdesigneur as rd
 import matplotlib
 
@@ -173,7 +169,7 @@ def main():
     pylab.show()
 
     if doMoo:
-        app = QtGui.QApplication(sys.argv)
+        app = QApplication(sys.argv)
         morphology = moogli.read_morphology_from_moose( name="", path = '/model/elec' )
         widget = moogli.MorphologyViewerWidget( morphology )
         widget.show()
@@ -204,7 +200,7 @@ def showVisualization():
     spineHeads = moose.wildcardFind( '/model/elec/#head#')
 
     if doMoo:
-        app = QtGui.QApplication(sys.argv)
+        app = QApplication(sys.argv)
         viewer = create_viewer("/model/elec", dendrite, dendZ, diaTab, psdZ)
         viewer.showMaximized()
         viewer.start()
