@@ -137,7 +137,13 @@ def run_script(filename, args):
 
     status = 'FAILED'
     stamp = datetime.datetime.now().isoformat()
-    command = [sys.executable, filename]
+    if args.pytest:
+        command = sys.executable + " -m pytest "
+        command += "--cov=moose --cov=rdesigneur --cov-append --cov-report="
+        command += " %s::main" % filename
+        command = command.split(" ")
+    else:
+        command = [sys.executable, filename]
     r = ''
     print('\t Executing %s' % filename)
     try:
@@ -209,6 +215,11 @@ if __name__ == '__main__':
                         default=False,
                         help='Run all scripts dont run filter')
 
+    parser.add_argument('--pytest',
+                        '-P',
+                        action='store_true',
+                        default=False,
+                        help='Use pytest to run')
     class Args:
         pass
 
