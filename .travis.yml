@@ -22,4 +22,4 @@ script:
     - python3 -m pip install pymoose --pre --upgrade --user
     - python3 -m pip install -r .ci/requirements.txt  --user
     - python3 -m pip install numpy --upgrade --user
-    - python3 ./.ci/execute_travis_serial.py -n 60
+    - python3 ./.ci/run_scripts.py 
